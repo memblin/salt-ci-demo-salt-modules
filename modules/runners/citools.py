@@ -48,10 +48,7 @@ def compare_incoming_to_target(target_pillarenv, incoming_pillarenv, path=None):
         path = []
 
     changes = []
-    log.info(f"target_pillarenv: {target_pillarenv}")
-    log.info(f"incoming_pillarenv: {incoming_pillarenv}")
     for key in target_pillarenv.keys():
-        log.info(f"key: {key}")
         if key not in incoming_pillarenv:
             if path:
                 changes.append(":".join(path + [key]) + ";removed")
@@ -102,9 +99,7 @@ def validate_pr(minion_ids, target_pillarenv, incoming_pillarenv):
 
     for id in minion_ids:
         target_pillar_content = get_pillar_for_env(id, target_pillarenv)
-        log.info(f"target_pillar_content: {target_pillar_content}")
         incoming_pillar_content = get_pillar_for_env(id, incoming_pillarenv)
-        log.info(f"incoming_pillar_content: {incoming_pillar_content}")
 
         target_pillar[id] = target_pillar_content
         incoming_pillar[id] = incoming_pillar_content
