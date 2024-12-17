@@ -1,5 +1,8 @@
 """
 Salt runner module providing CI tools and utilities.
+
+Provides utility functions that CI workflows might find helpful which can be exposed from the salt-api runner client.
+
 """
 
 import logging
